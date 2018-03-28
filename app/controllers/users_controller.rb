@@ -16,5 +16,16 @@ class UsersController < ApplicationController
   end
 
 
+  get '/login' do
+
+    erb :'/users/login'
+  end
+
+  post '/login' do
+
+    
+  end
+
+
 
 end
