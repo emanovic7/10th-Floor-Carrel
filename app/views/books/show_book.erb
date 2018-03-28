@@ -1,0 +1,8 @@
+
+<p> These are your books, <%= current_user.username %>
+
+<% @books.each do |book| %>
+  <div>
+    <%= book.name %>
+  </div>
+<% end %>
