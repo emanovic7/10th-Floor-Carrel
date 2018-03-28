@@ -62,5 +62,28 @@ class BooksController < ApplicationController
     end
   end
 
+  #process editting
+  patch '/books/:id' do
+    if logged_in?
+      if params[:title] == "" || params[:author] == "" || params[:subject] == ""
+        redirect to '/books/#{params[:id]}/edit'
+    else
+       @book = Book.find_by_id(params[:id])
+        if @book && @book.user == current_user
+          if @book.update(content: params[:content])
+            redirect to "/books/#{@book.id}"
+          else
+            redirect to "/books/#{@book.id}/edit"
+          end
+        else
+          redirect to '/books'
+        end
+      end
+      else
+        redirect to '/login'
+      end
+  end
+
+
 
 end
