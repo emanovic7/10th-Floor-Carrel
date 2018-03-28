@@ -17,13 +17,16 @@ class UsersController < ApplicationController
 
 
   get '/login' do
-
-    erb :'/users/login'
+    if !logged_in?
+      erb :'/users/login'
+    else
+      redirect to '/users/personal'
+    end
   end
 
   post '/login' do
 
-    
+
   end
 
 
