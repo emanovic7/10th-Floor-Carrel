@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     else
       @user=User.create(user_name: params[:user_name], email: params[:email], password: params[:password_digest])
       session[:user_id] = @user.id
-      redirect '/users/home_page'
+      erb :'/users/personal'
     end
   end
 
@@ -25,10 +25,14 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-
-
+    @user = User.find_by(user_name: params[:user_name])
+      if @user !=nil && @user.password == params[:password]
+        session[:user_id] = @user.id
+        redirect to '/users/personal'
+      else
+        redirect to '/login'
+      end
   end
-
 
 
 end
