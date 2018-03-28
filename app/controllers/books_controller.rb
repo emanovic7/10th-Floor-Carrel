@@ -34,10 +34,33 @@ class BooksController < ApplicationController
             end
         end
       else
-        redirect '/login'
+        redirect to '/login'
       end
     end
 
+  #individual book
+  get '/books/:id' do
+    if logged_in?
+      @book = Book.find_by_id(params[:id])
+      erb :'/books/show_book'
+    else
+      redirect to '/login'
+    end
+  end
+
+  #edit book
+  get '/books/:id/edit' do
+    if logged_in?
+      @book = Book.find_by_id(params[:id])
+        if @book && @book.user == current_user
+          erb :'books/edit_book'
+        else
+          redirect to '/books'
+        end
+    else
+      redirect to '/login'
+    end
+  end
 
 
 end
