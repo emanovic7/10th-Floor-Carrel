@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
 
-  get '/register' do
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    erb :'users/personal'
+  end
 
-    erb :'/users/register'
+  get '/register' do
+    
+      erb :'/users/register'
   end
 
   post '/register' do
