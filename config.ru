@@ -7,6 +7,5 @@ end
 use Rack::MethodOverride
 use AuthorsController
 use BooksController
-use SubjectsController
 use UsersController
 run ApplicationController

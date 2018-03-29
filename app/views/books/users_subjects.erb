@@ -1,4 +1,4 @@
-<p>These are all the subjects of all books in your colleciton, <%= @user.user_name %></p>
+<p>These are all the subjects of all books in your colleciton</p>
 
 <% @user.books.all.each do |book|%>
   <%= book.subject.name %>
