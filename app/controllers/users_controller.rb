@@ -48,5 +48,14 @@ class UsersController < ApplicationController
     end
   end
 
+  #list user's books' subjects
+    get '/user/subjects' do
+      if logged_in?
+        erb :'/books/users_subjects'
+      else
+        redirect to '/users/login'
+      end
+    end
+
 
 end
