@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   get '/register' do
-    
+
       erb :'/users/register'
   end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else
-      redirect to '/users/personal'
+      redirect to '/books/books_list'
     end
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find_by(user_name: params[:user_name])
       if @user !=nil && @user.password == params[:password]
         session[:user_id] = @user.id
-        redirect to '/users/personal'
+        redirect to '/books/books_list'
       else
         redirect to '/login'
       end
