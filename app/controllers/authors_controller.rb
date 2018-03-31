@@ -10,4 +10,21 @@ class AuthorsController < ApplicationController
   end
 
 
+  get '/authors/new' do
+    if logged_in?
+      erb :'/authors/create_author'
+    else
+      redirect to '/login'
+    end
+  end
+
+  post '/authors/new' do
+    if logged_in?
+      @author = Author.create(name: params[:name])
+    else
+      redirect to '/login'
+    end
+  end
+
+
 end

@@ -6,3 +6,8 @@ abby = User.create(user_name: "Abigale", email:"ahoke@live.com")
 sean = User.create(user_name: "Sean", email:"pearson@live.com")
 vlad = User.create(user_name: "Vladimir", email:"vlad@live.com")
 madeline = User.create(user_name: "Madeline", email:"moleary@live.com")
+
+
+jkrowling = Author.create(name: "J K Rolwing")
+jrtolkien = Author.create(name: "R Tolkien")
+jbond = Author.create(name: "James Bond")
