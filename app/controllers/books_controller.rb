@@ -6,7 +6,7 @@ class BooksController < ApplicationController
       @books = Book.all
       erb :'/books/books_list'
     else
-      erb :'/users/login'
+      erb :'login'
     end
 
   end
@@ -22,21 +22,14 @@ class BooksController < ApplicationController
 
 #process submitted book info
     post '/books/new' do
-      if logged_in?
-        if params[:title] = ""
-          redirect to '/books/new'
-        else
-          @book = current_user.books.create(title: params[:title], author: params[:author], subject: params[:subject])
-            if @book.save
-              redirect to '/books/#{@book.id}'
-            else
-              redirect to '/books/new'
-            end
-        end
-      else
-        redirect to '/login'
-      end
+    if logged_in?
+      @book.create(name: params[:name])
+      @book.artist = Artist.find_or_create_by(name: params[:name])
+      @book.save
+    else
+      redirect to '/login'
     end
+  end
 
   #individual book
   get '/books/:id' do

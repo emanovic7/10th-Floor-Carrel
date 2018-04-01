@@ -1,2 +1,4 @@
 
-<p> These are your books, <%= current_user.user_name %>
+<p>Current Book</p>
+<p>Title: <%= @book.name %></p>
+<a href="/authors/<%= @song.author.slug %>"> <%= @song.author.name %> </a>

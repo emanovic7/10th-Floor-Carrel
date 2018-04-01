@@ -26,5 +26,10 @@ class AuthorsController < ApplicationController
     end
   end
 
+  get '/authors/:slug' do
+    @author = Author.find_by_slug(params[:slug])
+    erb :'authors/show_author'
+  end
+
 
 end
