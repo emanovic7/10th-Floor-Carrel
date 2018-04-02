@@ -22,6 +22,9 @@ class AuthorsController < ApplicationController
   post '/authors/new' do
     if logged_in?
       @author = Author.create(name: params[:name])
+      @author.save
+
+      erb :'/authors/show_author'
     else
       redirect to '/login'
     end
@@ -29,6 +32,7 @@ class AuthorsController < ApplicationController
 
   get '/authors/:slug' do
     @author = Author.find_by_slug(params[:slug])
+
     erb :'authors/show_author'
   end
 

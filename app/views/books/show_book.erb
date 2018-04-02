@@ -1,6 +1,7 @@
 
 <p>Current Book</p>
 <p>Title: <%= @book.name %></p></br>
+<a href="/authors/<%= @book.author.slug %>"> <%= @book.author.name %> </a>
 
 <p><a href='/books/:slug/delete'>Edit Book</a></p></br>
 <p><a href='/books/:slug/delete'>Delete Book</a></p></br>

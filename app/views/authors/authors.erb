@@ -2,6 +2,6 @@
 
 <% @authors.all.each do |author| %>
 <div>
-  <%= author.name %>
+  <a href='/authors/:slug'><%= author.name %></a>
 </div>
 <% end %>
