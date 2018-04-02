@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   has_many :authors, through: :books
 
   def slug
-   user_name.downcase.gsub(" ","-")
+    unless name.nil?
+      self.name.gsub(" ","-").downcase
+    end
   end
 
   def self.find_by_slug(slug)

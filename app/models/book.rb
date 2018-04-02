@@ -5,7 +5,9 @@ class Book < ActiveRecord::Base
   has_many :subjects, through: :book_subjects
 
   def slug
-   name.downcase.gsub(" ","-")
+    unless name.nil?
+      self.name.gsub(" ","-").downcase
+    end
   end
 
   def self.find_by_slug(slug)
