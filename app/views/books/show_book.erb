@@ -2,7 +2,4 @@
 <p>Current Book</p>
 <p>Title: <%= @book.name %></p>
 <p>Author: <%= @book.author.name %> </p>
-
-<% @book.subjects.each do |subject| %>
-  <%= subject.name %>
-<% end %>
+<p>Subject: <%= @book.subject.name %> </p>
