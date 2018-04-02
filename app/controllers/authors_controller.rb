@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
 
+
   get '/authors' do
     if logged_in?
       @authors = Author.all

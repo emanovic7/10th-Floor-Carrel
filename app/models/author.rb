@@ -6,12 +6,12 @@ class Author < ActiveRecord::Base
 
   def slug
    name.downcase.gsub(" ","-")
- end
+  end
 
- def self.find_by_slug(slug)
+  def self.find_by_slug(slug)
    Author.all.find do |author|
      author.slug == slug
-   end
+  end
  end
 
 end

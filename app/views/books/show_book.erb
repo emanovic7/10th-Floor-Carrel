@@ -1,4 +1,8 @@
 
 <p>Current Book</p>
 <p>Title: <%= @book.name %></p>
-<a href="/authors/<%= @song.author.slug %>"> <%= @song.author.name %> </a>
+<p>Author: <%= @book.author.name %> </p>
+
+<% @book.subjects.each do |subject| %>
+  <%= subject.name %>
+<% end %>
