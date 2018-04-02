@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     if logged_in?
       @book = Book.create(name: params["book title"])
       @book.author = Author.find_or_create_by(name: params["author name"])
-      @book.subject = Subject.find_or_create_by(name: params["subjects"])
+      @book.subject = Subject.find_or_create_by(name: params["subject name"])
       @book.save
 
       erb :'/books/show_book'
