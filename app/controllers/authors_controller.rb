@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class AuthorsController < ApplicationController
+  use Rack::Flash
 
 
   get '/authors' do
@@ -23,6 +26,8 @@ class AuthorsController < ApplicationController
     if logged_in?
       @author = Author.create(name: params[:name])
       @author.save
+
+      flash[:message] = "New Author Created!"
 
       erb :'/authors/show_author'
     else

@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class BooksController < ApplicationController
+  use Rack::Flash
 
 #get user's books
   get '/books' do
@@ -27,6 +30,8 @@ class BooksController < ApplicationController
       @book.author = Author.find_or_create_by(name: params["author name"])
       @book.subject_ids = params[:subjects]
       @book.save
+
+      flash[:message] = "New Book Added!"
 
       erb :'/books/show_book'
     else
