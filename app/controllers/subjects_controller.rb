@@ -10,7 +10,7 @@ class SubjectsController < ApplicationController
   end
 
   get '/subjects/:slug' do
-    @subject = Subjects.find_by_slug(params[:slug])
+    @subject = Subject.find_by_slug(params[:slug])
     erb :'/subjects/show_subject'
   end
 

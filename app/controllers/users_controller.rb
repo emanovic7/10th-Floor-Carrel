@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
 
+    erb :'users/personal'
+  end
+  
 
   get '/register' do
 
@@ -36,13 +41,7 @@ class UsersController < ApplicationController
       end
   end
 
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
 
-    erb :'users/personal'
-  end
-
-  
 
   get '/logout' do
     if logged_in?
