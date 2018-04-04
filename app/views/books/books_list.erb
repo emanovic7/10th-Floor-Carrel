@@ -2,6 +2,6 @@
 
   <% @books.all.each do |book| %>
   <div>
-    <%= book.name %></br>
+    <a href="/books/<%= book.slug %>"><%= book.name %></a></br>
   </div>
   <% end %>
