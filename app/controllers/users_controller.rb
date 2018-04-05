@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     erb :'users/personal'
   end
-  
+
 
   get '/register' do
 
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
       session.destroy
       redirect to '/'
     else
-      redirect to '/'
+      redirect to '/login'
     end
   end
 
